@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>量衡录 — A股量化月报</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/chat.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f5f1e8'/%3E%3Crect x='15' y='15' width='70' height='70' fill='none' stroke='%23b8351f' stroke-width='6'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-family='serif' font-size='42' font-weight='700' fill='%23b8351f'%3E衡%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <a href="#view-root" class="skip-nav">跳 至 主  内 容</a>
+
+  <!-- 报头 Masthead -->
+  <header class="masthead">
+    <div class="masthead-rule"></div>
+    <div class="masthead-inner">
+      <div class="masthead-left">
+        <div class="masthead-edition" id="masthead-date">— 载 第 — 期</div>
+        <div class="masthead-price">每周发行  ·  不取分文</div>
+      </div>
+      <div class="masthead-center">
+        <h1 class="masthead-title">量衡录</h1>
+        <div class="masthead-subtitle">—  A 股量化月报  ·  多策略共振选股  —</div>
+      </div>
+      <div class="masthead-right">
+        <div class="status-pill" id="api-status" data-state="connecting">
+          <span class="status-dot"></span>
+          <span class="status-text">通 讯 待 接</span>
+        </div>
+        <button class="task-badge" id="task-badge" hidden title="点击查看任务进度">工 程  <span id="task-badge-count">0</span></button>
+        <div class="masthead-meta" id="masthead-meta">— · — 载 数 · — 候 命</div>
+      </div>
+    </div>
+    <div class="masthead-rule double"></div>
+  </header>
+
+  <!-- 主体 Main -->
+  <main class="paper">
+    <!-- 左侧目录 -->
+    <nav class="toc">
+      <div class="toc-title">目  录</div>
+      <ul class="toc-list">
+        <li><a href="#/screen" data-route="screen" class="toc-item">     <span class="toc-num">壹</span><span class="toc-name">选  股</span><span class="toc-en">Screen</span></a></li>
+        <li><a href="#/chat" data-route="chat" class="toc-item">         <span class="toc-num">贰</span><span class="toc-name">问  股</span><span class="toc-en">Chat</span></a></li>
+        <li><a href="#/weekly" data-route="weekly" class="toc-item">     <span class="toc-num">叁</span><span class="toc-name">量 衡 录</span><span class="toc-en">Almanac</span></a></li>
+        <li><a href="#/settings" data-route="settings" class="toc-item"> <span class="toc-num">肆</span><span class="toc-name">设  置</span><span class="toc-en">Settings</span></a></li>
+      </ul>
+      <div class="toc-marginalia">
+        <div class="marginalia-line">— 凡 选 股 须 守 三 约 —</div>
+        <div class="marginalia-line">本 益 莫 攀 高</div>
+        <div class="marginalia-line">净 益 连 达 标</div>
+        <div class="marginalia-line">负 债 勿 过 半</div>
+      </div>
+    </nav>
+
+    <!-- 右侧主区 -->
+    <section class="content" id="view-root">
+      <!-- 由 router 渲染 -->
+      <div class="placeholder">载  入  中  …</div>
+    </section>
+  </main>
+
+  <!-- 版尾 Colophon -->
+  <footer class="colophon">
+    <div class="colophon-rule"></div>
+    <div class="colophon-inner">
+      <div class="colophon-left">
+        <div class="colophon-cn">量衡录 编 印</div>
+        <div class="colophon-en">Quant Almanac Press</div>
+      </div>
+      <div class="colophon-center">
+        <div class="colophon-warn">本 报 所 载 不 构 成 任 何 投 资 建 议  ·  沪 深 两 市 风 险 自 担</div>
+      </div>
+      <div class="colophon-right">
+        <div class="colophon-ver" id="colophon-ver">版 次 —  ·  庚 子 年 制</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 全局 toast -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- 模态：任务进度 -->
+  <div class="modal-veil" id="task-modal" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <div class="modal-title" id="task-modal-title">工  程  进  度</div>
+        <button class="modal-close" data-close>闭 ×</button>
+      </div>
+      <div class="modal-body">
+        <div class="progress-block">
+          <div class="progress-meta">
+            <span class="progress-pct" id="task-modal-pct">0%</span>
+            <span class="progress-step" id="task-modal-step">— · — 候 命 —</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" id="task-modal-fill" style="width:0%"></div></div>
+        </div>
+        <pre class="log-stream" id="task-modal-log">（ 日 志 待 载 ）</pre>
+      </div>
+      <div class="modal-foot">
+        <button class="btn-cancel" id="task-modal-cancel">撤  回  此  令</button>
+        <span class="modal-hint" id="task-modal-hint">2 秒 轮 讯 · 任 务 一 经 提 交 不 可 改 参</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模态：任务中心 -->
+  <div class="modal-veil" id="task-center" hidden>
+    <div class="modal" style="max-width: 720px;">
+      <div class="modal-head">
+        <div class="modal-title">工  程  中  心</div>
+        <button class="modal-close" data-close-task-center>闭 ×</button>
+      </div>
+      <div class="modal-body" id="task-center-content" style="max-height: 70vh; overflow-y: auto;">
+        <div class="loading" style="padding: 32px; text-align:center; display:block">候  讯  中</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="/js/chat.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+# === 密钥与本地配置（最重要） ===
+.env
+.env.local
+.env.*.local
+
+# === Python 字节码与缓存 ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# === 虚拟环境 ===
+venv/
+.venv/
+env/
+ENV/
+
+# === 数据缓存与生成产物（量大、可重建） ===
+data/
+output/
+daily/
+*.parquet
+*.csv
+!frontend/.gitkeep
+
+# === 日志 ===
+*.log
+logs/
+
+# === IDE / 编辑器 ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# === 前端（原生 HTML/JS，无构建；防 node_modules 误入） ===
+node_modules/
+frontend/dist/
+frontend/.cache/
+
+# === 本地 Claude 配置 / 技能（个人，不入库） ===
+.claude/
+
+# === 竞赛交付物与个人资料（不入库） ===
+*.docx
+*.pptx
+projects/
+
+# === 测试与覆盖率 ===
+.coverage
+htmlcov/
+coverage/
+.tox/

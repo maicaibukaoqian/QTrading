@@ -1,0 +1,9 @@
+# Third Party Notices
+
+See `THIRD_PARTY_NOTICES.md` for full content.
+
+- Project license: MIT
+- Python deps: BSD / MIT / Apache-2.0 (all MIT-compatible)
+- Data sources: baostock (BSD) / akshare (MIT) / efinance (MIT); subject to original data provider terms
+- Frontend fonts: SIL OFL 1.1 (Google Fonts)
+- LLM prompts: project-original, based on public textbooks (fundamental / valuation / technical / chips / risk 5 dimensions)
