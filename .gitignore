@@ -48,6 +48,14 @@ frontend/.cache/
 # === 本地 Claude 配置 / 技能（个人，不入库） ===
 .claude/
 
+# === 归档文档（本地保留，不入库） ===
+PROJECT_README.md
+PROJECT_STRUCTURE.md
+AI_FINANCE_AGENT_PLAN.md
+当前策略.md
+docs/项目文档.md
+scripts/data_maint/README.md
+
 # === 竞赛交付物与个人资料（不入库） ===
 *.docx
 *.pptx

@@ -117,8 +117,6 @@ python main.py daily report --no-ai
 
 ## 🎯 已实现的 5 个策略
 
-详见 [`当前策略.md`](./当前策略.md)。
-
 | 策略 | 核心条件 |
 | :--- | :--- |
 | 价值选股 | PE&lt;30 + 连续ROE&gt;10% + 毛利率&gt;20% + 负债率&lt;70% |
@@ -153,10 +151,7 @@ python main.py daily report --no-ai
 │   ├── ai_prompts/              # LLM 系统 prompt（通用投研框架）
 │   └── config/settings.py       # pydantic-settings
 ├── data/                        # 缓存 + 输出（git ignore）
-├── frontend/                    # 静态前端（量衡录报刊风）
-├── 当前策略.md                  # 5 个策略说明
-├── AI_FINANCE_AGENT_PLAN.md     # 下一阶段（5 天冲刺）计划
-└── PROJECT_STRUCTURE.md         # 架构说明
+└── frontend/                    # 静态前端（量衡录报刊风）
 ```
 
 ---
@@ -198,7 +193,7 @@ data/
 
 **MIT License** · 第三方依赖、数据源、AI 提示词原创性等知识产权边界见 [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md)
 
-📄 [`LICENSE`](./LICENSE) &nbsp;·&nbsp; 🤝 [`CONTRIBUTING.md`](./CONTRIBUTING.md) &nbsp;·&nbsp; 🧭 [`PROJECT_STRUCTURE.md`](./PROJECT_STRUCTURE.md) &nbsp;·&nbsp; 🗺️ [`AI_FINANCE_AGENT_PLAN.md`](./AI_FINANCE_AGENT_PLAN.md)
+📄 [`LICENSE`](./LICENSE) &nbsp;·&nbsp; 🤝 [`CONTRIBUTING.md`](./CONTRIBUTING.md)
 
 *本项目仅供学习研究，不构成任何投资建议 · 市场有风险，决策须自担*
 
